@@ -24,16 +24,16 @@ router.get('/scraper', (req,res) =>  {
           .catch(err => res.json(err));
       }
     })
-    res.redirect('/articles')
+      // res.redirect('/articles')
   })
 })
 
 router.get('/articles', (req,res) =>  {
-  Article.find({})
+  Article.find({}).sort({_id: 1}).limit(20)
     .then(data => {
       var hbsObject = {articles: data}
       console.log(hbsObject)
-      // res.render('home', hbsObject)
+      res.render('home', hbsObject)
     })
     .catch(err => res.json(err))
 })
