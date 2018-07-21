@@ -79,6 +79,16 @@ router.get('/favorite/:id', (req,res) =>  {
   })
 })
 
+router.get('/remove/:id', (req,res) =>  {
+  Article.findByIdAndUpdate(req.params.id, { $set: { isFav: false}}, {new: true})
+  .then(function(update)  {
+    res.redirect('/articles')
+  })
+  .catch(function(err)  {
+    res.json(err);
+  })
+})
+
 router.get('/saved', (req,res) =>  {
   Article.find({isFav: true})
     .then(result => {

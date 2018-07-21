@@ -2,12 +2,13 @@
 <div class="container">
     <div class="row">
         {{#each saved}}
-        <div class="col s12 m8 offset-m2">
+        <div class="col s12 m6">
             <div class="card z-depth-1">
                 <div class="card-image">
                     <a href={{link}} target="_blank">
                         <img src={{image}}>
                     </a>
+                    <a class="btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons z-depth-3">delete</i></a>
                 </div>
                 <div class="card-content">
                     <span class="card-title black-text">{{title}}</span>

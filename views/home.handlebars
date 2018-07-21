@@ -3,16 +3,16 @@
 <div class="container">
     <div class="row">
     {{#each articles}}
-            <div class="col s12">
+            <div class="col s12 m6">
             <div class="card z-depth-1">
                 <div class="card-image">
                     <a href={{link}} target="_blank">
                         <img src={{image}} class="z-depth-5">
                     </a>
                     {{#if isFav}}
-                    <a class="btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons z-depth-3">star</i></a>
+                    <a class="btn-floating halfway-fab waves-effect waves-light amber" href="/remove/{{_id}}"><i class="material-icons z-depth-3">star</i></a>
                     {{else}}
-                    <a class="btn-floating halfway-fab waves-effect waves-light cyan" href="/favorite/{{id}}"><i class="material-icons z-depth-3">save</i></a>
+                    <a class="btn-floating halfway-fab waves-effect waves-light cyan" href="/favorite/{{_id}}"><i class="material-icons z-depth-3">save</i></a>
                     {{/if}}
                 </div>
                 <div class="card-content">
@@ -20,6 +20,9 @@
                     <p>{{summary}}</p>
                     <br>
                     <span class="card-title activator grey-text text-darken-4">Add Comment<i class="material-icons left">add</i></span>
+                    {{#if comments}}
+                        <a href='/comments/{{_id}}' class="grey-text text-darken-4 card-title">View Comments<i class="material-icons left">message</i></a>
+                    {{/if}}
 
                 </div>
                     <div class="card-reveal">
@@ -34,11 +37,7 @@
                             <button type="submit">send</button>
                         </form>
                     </div>
-                    {{#if comments}}
-                    <div class="card-action cyan">
-                        <a href='/comments/{{_id}}' class="white-text">View Comments<i class="material-icons left">message</i></a>
-                    </div>
-                    {{/if}}
+
             </div>
             </div>
 
