@@ -7,6 +7,10 @@ const cheerio = require("cheerio");
 const Comments = require('../models/Comments.js')
 const Article = require('../models/Article.js')
 
+router.get('/', (req,res) =>  {
+  res.render('scrape')
+})
+
 router.get('/scraper', (req,res) =>  {
   request('https://cleaningtheglass.com/articles/', (error, response, html) =>  { 
   const $ = cheerio.load(html);
@@ -30,9 +34,7 @@ router.get('/scraper', (req,res) =>  {
   })
 })
 
-router.get('/', (req,res) =>  {
-  res.render('scrape')
-})
+
 
 router.get('/articles', (req,res) =>  {
   Article.find({}).sort({_id: 1}).limit(20)
@@ -104,8 +106,13 @@ router.get('/delete/comment/:id', (req,res) =>  {
     .catch(err => res.json(err))
 })
 
+router.get('/article/delete/:id', (req,res) =>  {
+  Article.findByIdAndRemove(req.params.id)
+    .then(result => res.redirect('/saved'))
+})
+
 router.get('/delete_all', (req,res) =>  {
-  Article.deleteMany({}, response => res.redirect('/articles'))
+  Article.deleteMany({}, response => res.redirect('/'))
 })
 
 

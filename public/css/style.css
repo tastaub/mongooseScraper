@@ -5,3 +5,7 @@ img:hover  {
 .card  {
     height: 450px;
 }
+
+body  {
+    background-color: #bdbdbd;
+}
