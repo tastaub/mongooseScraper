@@ -11,13 +11,14 @@ const ArticleSchema = new Schema({
         type: String,
         required: true
     },
+    image: String,
     isFav: {
         type: Boolean,
         default: false
     },
     comments: [{
         type: Schema.Types.ObjectId,
-        ref: 'Comment'
+        ref: 'Comments'
     }]
 })
 

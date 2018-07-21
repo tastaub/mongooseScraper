@@ -1,6 +1,47 @@
-{{#each articles}}
-    <p>{{title}}</p>
-    <p>{{summary}}</p>
-    <a href={{link}}>read it here</a>
-    <button data-id={{_id}}>Add Comment</button>
-{{/each}}
+
+
+<div class="container">
+    <div class="row">
+    {{#each articles}}
+            <div class="col s12">
+            <div class="card z-depth-1">
+                <div class="card-image">
+                    <a href={{link}} target="_blank">
+                        <img src={{image}} class="z-depth-5">
+                    </a>
+                    {{#if isFav}}
+                    <a class="btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons z-depth-3">star</i></a>
+                    {{else}}
+                    <a class="btn-floating halfway-fab waves-effect waves-light cyan" href="/favorite/{{id}}"><i class="material-icons z-depth-3">save</i></a>
+                    {{/if}}
+                </div>
+                <div class="card-content">
+                    <span class="card-title black-text">{{title}}</span>
+                    <p>{{summary}}</p>
+                    <br>
+                    <span class="card-title activator grey-text text-darken-4">Add Comment<i class="material-icons left">add</i></span>
+
+                </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{title}}<i class="material-icons right">close</i></span>
+                        <form action="/articles/{{_id}}" method="POST">
+                            <div class="input-field col s12">
+                                <input placeholder="Name" id="author_name" type="text" name="author">
+                            </div>
+                            <div class="input-field col s12">
+                                <textarea  placeholder="Comment" id="content-data" class="materialize-textarea" name="content"></textarea>
+                            </div>
+                            <button type="submit">send</button>
+                        </form>
+                    </div>
+                    {{#if comments}}
+                    <div class="card-action cyan">
+                        <a href='/comments/{{_id}}' class="white-text">View Comments<i class="material-icons left">message</i></a>
+                    </div>
+                    {{/if}}
+            </div>
+            </div>
+
+    {{/each}}
+    </div>
+</div>
