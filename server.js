@@ -17,7 +17,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/scraperData")
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scraperData"
+mongoose.connect(MONGODB_URI)
 const db = mongoose.connection
 
 db.on('error', err => console.log(`Mongoose connection error: ${err}`))
