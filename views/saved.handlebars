@@ -13,7 +13,27 @@
                 <div class="card-content">
                     <span class="card-title black-text">{{title}}</span>
                     <p>{{summary}}</p>
+                    <br>
+                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons left">add</i></span>
                 </div>
+                <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{title}}<i class="material-icons right">close</i></span>
+                        <form action="/articles/{{_id}}" method="POST">
+                            <div class="input-field col s12">
+                                <input placeholder="Name" id="author_name" type="text" name="author">
+                            </div>
+                            <div class="input-field col s12">
+                                <textarea  placeholder="Comment" id="content-data" class="materialize-textarea" name="content"></textarea>
+                            </div>
+                            <button class="btn cyan" type="submit">send</button>
+
+                    {{#if comments}}
+                    <br>
+                    <br>
+                    <a href='/comments/{{_id}}' class="grey-text text-darken-4 card-title">View Comments<i class="material-icons left">message</i></a>
+                    {{/if}}
+                        </form>
+                    </div>
             </div>
         </div>
         {{/each}}

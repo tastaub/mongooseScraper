@@ -19,10 +19,7 @@
                     <span class="card-title black-text">{{title}}</span>
                     <p>{{summary}}</p>
                     <br>
-                    <span class="card-title activator grey-text text-darken-4">Add Comment<i class="material-icons left">add</i></span>
-                    {{#if comments}}
-                        <a href='/comments/{{_id}}' class="grey-text text-darken-4 card-title">View Comments<i class="material-icons left">message</i></a>
-                    {{/if}}
+                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons left">add</i></span>
 
                 </div>
                     <div class="card-reveal">
@@ -34,7 +31,13 @@
                             <div class="input-field col s12">
                                 <textarea  placeholder="Comment" id="content-data" class="materialize-textarea" name="content"></textarea>
                             </div>
-                            <button type="submit">send</button>
+                            <button class="btn cyan" type="submit">send</button>
+
+                    {{#if comments}}
+                    <br>
+                    <br>
+                    <a href='/comments/{{_id}}' class="grey-text text-darken-4 card-title">View Comments<i class="material-icons left">message</i></a>
+                    {{/if}}
                         </form>
                     </div>
 

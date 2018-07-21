@@ -98,6 +98,12 @@ router.get('/saved', (req,res) =>  {
     .catch(err => res.json(err))
 })
 
+router.get('/delete/comment/:id', (req,res) =>  {
+  Comments.findByIdAndRemove(req.params.id)
+    .then(result => res.redirect('/articles'))
+    .catch(err => res.json(err))
+})
+
 router.get('/delete_all', (req,res) =>  {
   Article.deleteMany({}, response => res.redirect('/articles'))
 })
