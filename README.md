@@ -10,12 +10,16 @@
 - Mongoose
 - Cheerio
 
-### Start
-Clone the repo here [CTG Scraper](https://github.com/tastaub/mongooseScraper)
-Run:
+### Demo
+[CTG Scraper](https://stark-crag-37953.herokuapp.com/)
 
-> npm i
+### Scraper
+##### Clip Artiles
+Clicking the clip button at start will populate the db with articles from Cleaning the Glass.
+##### Article Cards
+![Article Card](public/images/articlecard.png)
+Article cards contain an image link to the article source, title, and summary.
 
-Or visit at
+Users can add comments to the article db by clicking the + icon on the card.
 
-> [CTG Scraper](https://stark-crag-37953.herokuapp.com/)
+If comments are available for viewing a view message button will be visible from the message input.
